@@ -1,4 +1,5 @@
 import React from 'react'
+import DefaultNav from './DefaultNav'
 function Home() {
   return (
     <div 
@@ -7,6 +8,7 @@ function Home() {
       flexDirection: "column",
       alignItems: "center",
     }}>
+      <DefaultNav/>
       <div>
         <h1>You Take Me Home (Original) </h1>
         <iframe

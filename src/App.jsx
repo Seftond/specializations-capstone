@@ -3,7 +3,6 @@ import './App.css';
 import Contact from './components/Contact';
 import Events from './components/Events';
 import Home from './components/Home';
-import DefaultNav from './components/DefaultNav';
 import { Routes, Route } from 'react-router-dom';
 import Shop from './components/Shop';
 import Timeline from './components/Timeline';
@@ -13,14 +12,20 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path='/' element={<DefaultNav/>}>
+        <Route path='/' element={<Home/>}/>
         <Route path='home' element={<Home/>}/>
         <Route path='events' element={<Events/>}/>
         <Route path='shop' element={<Shop/>}/>
         <Route path='timeline' element={<Timeline/>}/>
         <Route path='contact' element={<Contact/>}/>
         <Route path='subscribe' element={<Subscribe/>}/>
-      </Route>
+        <Route path="*"
+          element={
+          <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+          </main>
+          }
+        />
     </Routes>
     </>
   );

@@ -1,8 +1,13 @@
 import React from 'react'
+import DefaultNav from './DefaultNav'
 
 function Shop() {
   return (
-    <div>Shop</div>
+    <div>
+    <DefaultNav/>
+    <p>Shop</p>
+
+  </div>
   )
 }
 

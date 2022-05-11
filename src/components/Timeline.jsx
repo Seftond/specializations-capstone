@@ -1,8 +1,13 @@
 import React from 'react'
+import DefaultNav from './DefaultNav'
 
 function Timeline() {
   return (
-    <div>Timeline</div>
+    <div>
+      <DefaultNav/>
+      <p>Timeline</p>
+
+    </div>
   )
 }
 

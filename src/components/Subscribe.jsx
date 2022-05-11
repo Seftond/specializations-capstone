@@ -1,8 +1,13 @@
 import React from 'react'
+import DefaultNav from './DefaultNav'
 
 function Subscribe() {
   return (
-    <div>Subscribe</div>
+    <div>
+      <DefaultNav/>
+      <p>Subscribe</p>
+
+    </div>
   )
 }
 

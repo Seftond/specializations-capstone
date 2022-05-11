@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link, Outlet} from 'react-router-dom';
-import Footer from './Footer';
+import { NavLink } from 'react-router-dom';
 function DefaultNav() {
     return (
         <div>
@@ -20,16 +19,86 @@ function DefaultNav() {
                     flexDirection: 'row',
                     justifyContent: 'center'
                 }}
-            >    
-                <Link to='/home'>Home</Link> |{" "}
-                <Link to='/events'>Tour</Link> |{" "}
-                <Link to='/shop'>Shop</Link> |{" "}
-                <Link to='/timeline'>Timeline</Link> |{" "}
-                <Link to='/contact'>Contact/Book</Link> |{" "}
-                <Link to='/subscibe'>Subscribe</Link>
+            >   
+                <NavLink             
+                    style={({ isActive }) => {
+                        return {
+                        display: "block",
+                        margin: "1rem 0",
+                        color: isActive ? "red" : "",
+                        padding: "5px"
+                        };
+                    }}
+                    to='/home'
+                >
+                    Home
+                </NavLink>
+                <NavLink             
+                    style={({ isActive }) => {
+                        return {
+                        display: "block",
+                        margin: "1rem 0",
+                        color: isActive ? "red" : "",
+                        padding: "5px"
+                        };
+                    }}
+                    to='/events'
+                >
+                    Tour
+                </NavLink>
+                <NavLink             
+                    style={({ isActive }) => {
+                        return {
+                        display: "block",
+                        margin: "1rem 0",
+                        color: isActive ? "red" : "",
+                        padding: "5px"
+                        };
+                    }}
+                    to='/shop'
+                >
+                    Shop
+                </NavLink> 
+                <NavLink             
+                    style={({ isActive }) => {
+                        return {
+                        display: "block",
+                        margin: "1rem 0",
+                        color: isActive ? "red" : "",
+                        padding: "5px"
+                        };
+                    }}
+                    to='/timeline'
+                >
+                    Timeline
+                </NavLink>
+                <NavLink             
+                    style={({ isActive }) => {
+                        return {
+                        display: "block",
+                        margin: "1rem 0",
+                        color: isActive ? "red" : "",
+                        padding: "5px"
+                        };
+                    }}
+                    to='/contact'
+                >
+                    Contact/Book
+                </NavLink>
+                <NavLink             
+                    style={({ isActive }) => {
+                        return {
+                        display: "block",
+                        margin: "1rem 0",
+                        color: isActive ? "red" : "",
+                        padding: "5px"
+                        };
+                    }}
+                    to='/subscribe'
+                >
+                    Subscribe
+                </NavLink> 
             </nav>
-                <Outlet/>
-                <Footer/>
     </div>
       )
 }

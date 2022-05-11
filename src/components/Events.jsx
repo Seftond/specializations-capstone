@@ -1,8 +1,13 @@
 import React from 'react'
+import DefaultNav from './DefaultNav'
 
 function Events() {
   return (
-    <div>Events</div>
+    <div>
+    <DefaultNav/>
+    <p>Events</p>
+
+  </div>
   )
 }
 
