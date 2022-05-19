@@ -1,12 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer } from '@react-google-maps/api';
-
-const center = { lat: 48.8584, lng: 2.2945 }
+const center = {lat: -25.363, lng: 131.044}
+const google = window.google
 
 function Map() {
-
     const {isLoaded} = useJsApiLoader({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey:'AIzaSyC7NkcbP1eQLDDAJaE3GUlcnOhmhEI5OXE',
         libraries: ['places'],
     });
 
@@ -50,45 +49,49 @@ function Map() {
     }
 
   return (
-    <div style={{
-        position: 'relative',
-        flexDirection: 'column',
-        alignItems: 'center',
-        height: '100vh',
-        width: '100vw'
-    }}
-    >
+    <div>
         <div style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            height: '100%',
-            width: '100%'
+            position: 'relative',
+            flexDirection: 'column',
+            alignItems: 'center',
+            height: '50vh',
+            width: '50vw'
         }}
         >
-            <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '100%', height: '100%'}} options={{zoomControl: false, streetViewControl: false, mapTypeControl:false, fullscreenControl: false,}}
-            onLoad={map => setMap(map)}
+            <div style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                height: '100%',
+                width: '100%'
+            }}
             >
-                <Marker position={center}/>
-                {directionsResponse && <DirectionsRenderer directions={directionsResponse}/>}
-            </GoogleMap>
+                <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '100%', height: '100%'}} options={{zoomControl: true, streetViewControl: false, mapTypeControl:false, fullscreenControl: false,}}
+                onLoad={map => setMap(map)}
+                >
+                    <Marker position={center}/>
+                    {directionsResponse && <DirectionsRenderer directions={directionsResponse}/>}
+                </GoogleMap>
+            </div>
         </div>
-        <div style={{zIndex: 'modal'}}>
-            <form>
-                <Autocomplete>
-                    <input type='text' placeholder='Start' ref={startRef}/>
-                </Autocomplete>
-                <Autocomplete>
-                    <input type='text' placeholder='Destination' ref={destinationRef}/>
-                </Autocomplete>
-                <button onClick={calculateRoute}>Calculate Route</button>
-                <button onClick={clearRoute}>X</button>
-                <button onClick={() => map.panTo(center)}>Center</button>
-            </form>
-            <p>Distance: {distance}</p>
-            <p>Duration: {duration}</p>
-        </div>
-        <button>Return</button>
+            <div style={{
+                backgroundColor: 'white',
+                zIndex: 'modal'
+            }}>
+                <form>
+                    <Autocomplete>
+                        <input type='text' placeholder='Start' ref={startRef}/>
+                    </Autocomplete>
+                    <Autocomplete>
+                        <input type='text' placeholder='Destination' ref={destinationRef}/>
+                    </Autocomplete>
+                    <button onClick={calculateRoute}>Calculate Route</button>
+                    <button onClick={clearRoute}>X</button>
+                    <button onClick={() => map.panTo(center)}>Center</button>
+                </form>
+                <p>Distance: {distance}</p>
+                <p>Duration: {duration}</p>
+            </div>
 
     </div>
   )

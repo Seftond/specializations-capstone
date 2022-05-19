@@ -1,5 +1,6 @@
 import React from 'react'
 import DefaultNav from './DefaultNav'
+import ImageSlider from './ImageSlider'
 function Home() {
   return (
     <div 
@@ -10,6 +11,7 @@ function Home() {
     }}>
       <DefaultNav/>
       <div>
+        <ImageSlider/>
         <h1>You Take Me Home (Original) </h1>
         <iframe
           width="560" 

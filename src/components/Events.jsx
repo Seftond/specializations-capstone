@@ -3,6 +3,7 @@ import {  useState } from 'react';
 import DefaultNav from './DefaultNav';
 import Event from './Event'
 import axios from 'axios';
+
 function Events() {
   const [tour, setTour] = useState({ loading: true, eventList: null });
 
