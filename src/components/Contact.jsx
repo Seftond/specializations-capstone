@@ -39,7 +39,7 @@ function Contact() {
 
         <div>
           <label htmlFor='message'>Message </label>
-          <Field type='text' id="message" name="message" placeholder='Message'/>
+          <Field as='textarea' type='text' id="message" name="message" placeholder='Message' rows='20' cols='50'/>
           <ErrorMessage name='message'/>
         </div>
       <button type='submit'>Submit</button>
