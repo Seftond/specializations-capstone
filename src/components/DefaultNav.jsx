@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 import Socials from './Socials'
 function DefaultNav() {
     return (
-        <div className='navPage'>
+        <>
             <section className='headerTitle'>
                 <img id='logo' src='images/logo-real.jpg' alt='Henry IX Logo' height='75'/>
             </section>
-            
+        <div className='navPage'>
             <nav className='navBar'>
                 <div  className='navSocials'>
                     <Socials/>  
@@ -74,6 +74,7 @@ function DefaultNav() {
                 </NavLink> 
             </nav>
     </div>
+        </>
       )
 }
 

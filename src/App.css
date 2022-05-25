@@ -64,11 +64,13 @@ a:-webkit-any-link {
 .headerTitle{
     display:flex;
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
 }
 
 .navPage{
     width: 100%;
+    position: sticky;
+    top: 0;
 }
 
 .navBar{
@@ -79,6 +81,8 @@ a:-webkit-any-link {
     justify-content: right;
     background-color:#212121;
     align-items: center;
+    position: sticky;
+    top: 0;
 }
 
 .headerLinks{

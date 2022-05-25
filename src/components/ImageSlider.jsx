@@ -10,8 +10,8 @@ function ImageSlider() {
   return (
     <div>
         <SimpleImageSlider
-        width={'80vw'}
-        height={'80vh'}
+        width={'98vw'}
+        height={'90vh'}
         images={images}
         showNavs={true}
         autoPlay={true}
