@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
 import Geocode from "react-geocode";
-Geocode.setApiKey("");
+Geocode.setApiKey("AIzaSyCkaIhelCouGXa3ZRB_2sI4WxRkVc4rdns");
 class App extends Component {
     constructor(props) {
         super(props);
@@ -40,6 +40,6 @@ class App extends Component {
         }
     }
 export default GoogleApiWrapper({
- apiKey: '',
+ apiKey: 'AIzaSyCkaIhelCouGXa3ZRB_2sI4WxRkVc4rdns',
  version: 3.31
 })(App);

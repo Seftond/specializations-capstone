@@ -67,10 +67,14 @@ function Event({eventDate, address, eventName, eventUrl, numGoing}) {
     axios.post(`http://localhost:3000/users`, obj)
     .then(res => {
       setNumber({value: '', error: ''} )
-      setCheckbox(false)
       setUserAttending({userStatus: "Going", totalAttending: userAttending.totalAttending + 1})
       setFormStatus(false)
-      alert('You will be notified when it gets closer to the event!')
+      if(checkbox === false){
+        alert("We can't wait to see you!")
+      }else {
+        alert('You will be notified when it gets closer to the event!')
+      }
+      setCheckbox(false)
     }).catch(err => alert("Unable to perform request"))
   }
 
