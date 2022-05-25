@@ -2,6 +2,8 @@ import React from 'react'
 import DefaultNav from './DefaultNav'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios'
+import Footer from './Footer'
 
 
 function Contact() {
@@ -17,35 +19,41 @@ function Contact() {
     message: ""
   }
   
-  const onSubmit = values => {
-    alert(`Username: ${values.username} Email: ${values.email} Message: ${values.message}`)
+  const onSubmit = (values, {resetForm}) => {
+    axios.post('http://localhost:3000/send', values)
+    resetForm();
+    alert("Your message has been sent")
   }
+
   return (
-    <div>
+    <div className='page'>
     <DefaultNav/>
-    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-      <Form>
-        <div>
-          <label htmlFor='username'>Name </label>
-          <Field type='text' id="username" name="username" placeholder='Name'/>
-          <ErrorMessage name='username'/>
-        </div>
+    <div className='contact'>
+      <h1>Contact Us</h1>
+      <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+        <Form>
+          <div>
+            <label htmlFor='username'>Name: <br></br></label>
+            <Field type='text' id="username" name="username" style = {{width: '30em'}}/>
+            <ErrorMessage name='username' render={msg => <div className="errorMessage">{msg}</div>}/>
+          </div>
 
-        <div>
-          <label htmlFor='email'>Email </label>
-          <Field type='text' id="email" name="email" placeholder='Email'/>
-          <ErrorMessage name='email'/>
-        </div>
+          <div>
+            <label htmlFor='email'>Email: <br></br> </label>
+            <Field type='text' id="email" name="email" style = {{width: '30em'}}/>
+            <ErrorMessage name='email' render={msg => <div className="errorMessage">{msg}</div>}/>
+          </div>
 
-        <div>
-          <label htmlFor='message'>Message </label>
-          <Field as='textarea' type='text' id="message" name="message" placeholder='Message' rows='20' cols='50'/>
-          <ErrorMessage name='message'/>
-        </div>
-      <button type='submit'>Submit</button>
-      </Form>
-    </Formik>
-
+          <div>
+            <label htmlFor='message'>Message: <br></br></label>
+            <Field as='textarea' type='text' id="message" name="message" style={{width: '30em', height: '20em', resize: 'none'}}/>
+            <ErrorMessage name='message' render={msg => <div className="errorMessage">{msg}</div>}/>
+          </div>
+        <button type='submit' style={{width: '5em'}}>Send</button>
+        </Form>
+      </Formik>
+    </div>
+    <Footer/>
   </div>
   )
 }

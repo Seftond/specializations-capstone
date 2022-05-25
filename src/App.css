@@ -1,0 +1,272 @@
+/*All*/
+body{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+/*All pages*/
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+/*Footer properties*/
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #212121;
+    width: 95%;
+    position:relative;
+    bottom: 0px;
+    padding: 2.5%;
+    margin-top: 20px;
+}
+
+.footerLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+/*Functionality styling*/
+a:-webkit-any-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footerLinks:hover{
+    text-decoration: underline;
+}
+
+.footerRight input{
+    width: 50%;
+    height: 2em;
+}
+
+.errorMessage{
+    color: #eed202;
+}
+
+.socials a{
+    margin-left: 10px;
+
+}
+
+/*Header styling*/
+.headerTitle{
+    display:flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+.navPage{
+    width: 100%;
+}
+
+.navBar{
+    width: 100%;
+    height: 3em;
+    display:flex;
+    flex-direction: row;
+    justify-content: right;
+    background-color:#212121;
+    align-items: center;
+}
+
+.headerLinks{
+    display: block;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .65em;
+    padding-bottom: .65em;
+    background-color: #212121;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.headerLinks:hover{
+    color:#BFBFBF;
+    text-decoration: none;
+}
+
+.navSocials{
+    width: 50%;
+}
+
+
+/*Home page content styling*/
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.homeVideo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+}
+
+/*Contact page content styling*/
+/*In Formik so most styling is in react component page*/
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Subscribe page styling*/
+.subscribe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscribeInput{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+}
+
+.subscribeInput input{
+    width: 20em;
+    height: 2em;
+    margin-right: 1em;
+}
+
+/*Events styling*/
+.events{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid white;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.event{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.eventTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-right: 5em;
+}
+
+.eventButtons{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+.eventButtons button {
+    margin: 5px;
+    height: 3em;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+}
+
+.eventButtons button:hover{
+    background-color: #BFBFBF;
+}
+
+.eventCount{
+    font-size: large;
+}
+
+.flipper{
+    animation: flip infinite 1s linear;
+  }
+
+@keyframes flip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+.shop{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.shopItem{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    width: 300px;
+    margin: 2em
+}
+
+.shopItem img{
+    height: 200px;
+    width: 200px;
+}
+
+.timeline{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timelineYear{
+    width: 80%;
+    height: 3em;
+    display:flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color: #BFBFBF;
+    align-items: center;
+    margin: 2em;
+}
+
+.timelineYear h3{
+    margin-left: 1em;
+    padding: 1em;
+    background-color: #212121;
+}
+
+.timelineText{
+    width: 50%;
+}
+
+
+
+
+
+
+

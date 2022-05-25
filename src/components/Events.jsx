@@ -3,6 +3,10 @@ import {  useState } from 'react';
 import DefaultNav from './DefaultNav';
 import Event from './Event'
 import axios from 'axios';
+import Footer from './Footer';
+import { IconContext } from 'react-icons';
+import { FaCrown } from 'react-icons/fa';
+
 
 function Events() {
   const [tour, setTour] = useState({ loading: true, eventList: null });
@@ -16,19 +20,17 @@ function Events() {
   },[tour])
 
   return (
-    <div>
+    <div className='page'>
       <DefaultNav/>
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
-      <img src='http://www.irishtimes.com/blogs/ontherecord/files/262087.jpg' alt='band logo'/>
-      { tour.loading && !tour.eventList ? (<div>loading...</div>) : 
-        (tour.eventList.map(element => (
-          (<Event key={element.event_id} eventDate = {element.event_date} address = {element.address} eventName = {element.event_name} eventUrl = {element.ticket_url} numGoing = {element.number_going}/>))))
-      }
+        <IconContext.Provider value={{size: 200}}>
+        {tour.loading && !tour.eventList ? <FaCrown className="flipper"/> : <FaCrown/>}
+        </IconContext.Provider>
+      <div className='events'>
+        {tour.loading && !tour.eventList ? "" :
+          (tour.eventList.map(element => (
+            (<Event key={element.event_id} eventDate = {element.event_date} address = {element.address} eventName = {element.event_name} eventUrl = {element.ticket_url} numGoing = {element.number_going}/>))))}
     </div>
+    <Footer/> 
   </div>
   )
 }

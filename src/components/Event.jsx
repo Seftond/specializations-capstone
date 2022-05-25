@@ -1,14 +1,20 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import Map from './Map';
+import {FaCrown} from 'react-icons/fa'
+import { IconContext } from 'react-icons'
+import Directions from './Directions';
+
+
 
 function Event({eventDate, address, eventName, eventUrl, numGoing}) {
-  const [mapsDisplay, setMapsDisplay] = useState({displayed: false, content: "Show Directions"})
-  const [userAttending, setUserAttending] = useState({userStatus:"Not Going", totalAttending: numGoing});
+  const [userAttending, setUserAttending] = useState({userStatus:"RSVP", totalAttending: numGoing});
   const [formStatus, setFormStatus] = useState(false)
   const [number, setNumber] = useState({value: '', error: ''});
   const [checkbox, setCheckbox] = useState(false);
   const [validInput, setValidInput] = useState('')
+  const [mapsDisplay, setMapsDisplay] = useState({displayed: false, content: "Show Directions"})
+  const [directionsStyle, setDirectionsStyle] = useState({});
+
 
   function switchGoing(){
     if(userAttending.userStatus !== "Going"){
@@ -20,9 +26,11 @@ function Event({eventDate, address, eventName, eventUrl, numGoing}) {
 
   function toggleMapDisplay(){
     if(mapsDisplay.displayed === false){
-      setMapsDisplay({displayed: true, content: "Close Directions"})
+      setMapsDisplay({displayed: true, content: "Hide Directions"})
+      setDirectionsStyle({height: "300px", width: "100%"})
     } else if (mapsDisplay.displayed === true){
       setMapsDisplay({displayed: false, content: 'Show Directions'})
+      setDirectionsStyle({})
     }
   }
 
@@ -48,7 +56,7 @@ function Event({eventDate, address, eventName, eventUrl, numGoing}) {
   function handleSubmit(e){
     e.preventDefault();
     if(number.value === '' || number.error !== ''){
-      setValidInput('Please provide the proper information for the name and number fields.')
+      setValidInput('Please provide the proper information for the number field.')
       return;
     }
     let obj = {
@@ -63,7 +71,7 @@ function Event({eventDate, address, eventName, eventUrl, numGoing}) {
       setUserAttending({userStatus: "Going", totalAttending: userAttending.totalAttending + 1})
       setFormStatus(false)
       alert('You will be notified when it gets closer to the event!')
-    })
+    }).catch(err => alert("Unable to perform request"))
   }
 
   function handleCancel(e){
@@ -72,36 +80,57 @@ function Event({eventDate, address, eventName, eventUrl, numGoing}) {
     setCheckbox(false)
     setFormStatus(false)
   }
-
+  
   return (
-    <>
-      <div>
-        <h1>{eventName}</h1>
-        <h2>{eventDate}</h2>
-        <p>{address}</p>
-        <a href={eventUrl}>Event Url</a>
-        { formStatus ?
-          (<form>
-            <p>{number.error}</p>
-            <input type='text' placeholder='phone number' onChange={handleNumberChange}/>
-            <p>Would you like to be notified when the event is approaching?</p>
-            <label htmlFor='yes'>Yes</label>
-            <input type='checkbox' id='yes' onClick={handleCheckboxChange}/>
-            <p>{validInput}</p>
-            <button type='submit' onClick={handleSubmit}>Submit</button>
-            <button onClick={handleCancel}>Cancel</button>
-          </form>)
-          :
-          (
-            <button onClick = {switchGoing}>{userAttending.userStatus}: {userAttending.totalAttending}</button>
-          )
+    <div className='eventBox'>
+      <div className='event'>
+          <div className='eventTitle'>
+            <div className='eventCount'>
+              <IconContext.Provider value={{ size: 25 }}>
+                <FaCrown/>{userAttending.totalAttending}
+              </IconContext.Provider>
+            </div>
+            <h1>{eventDate} - {eventName}</h1>
+            <p>{address}</p>
+          </div>
+          <div className='eventButtons'>
 
-        }
-        <button onClick={toggleMapDisplay}>{mapsDisplay.content}</button>
-      </div>
-        {/* {mapsDisplay.displayed ? <Map/> : ''} */}
-    </>
+            { formStatus ?
+              (<form>
+                <p className='errorMessage'>{number.error}</p>
+                <input type='text' placeholder='Enter your phone number' onChange={handleNumberChange}/>
+                <p>Would you like to be notified when the event is approaching?</p>
+                <label htmlFor='yes'>Yes</label>
+                <input type='checkbox' id='yes' onClick={handleCheckboxChange}/>
+                <p className='errorMessage'>{validInput}</p>
+                <button type='submit' onClick={handleSubmit}>Submit</button>
+                <button onClick={handleCancel}>Cancel</button>
+              </form>)
+              :
+              (
+                <>
+                <button onClick = {switchGoing}>{userAttending.userStatus}</button>
+                </>
+              )
+              
+            }
+            {formStatus ? "" : 
+            (<button>
+              <a href={eventUrl}>Info</a>
+            </button>)}
+            { formStatus ? "" :
+              (<button onClick={toggleMapDisplay}>{mapsDisplay.content}</button>)
+            }
+          </div>
+        </div>
+        <div style={directionsStyle}>
+          {mapsDisplay.displayed ? <Directions address={address}/> : ""}
+
+        </div>
+
+    </div>
   )
 }
+
 
 export default Event

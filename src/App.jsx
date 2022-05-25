@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import Shop from './components/Shop';
 import Timeline from './components/Timeline';
 import Subscribe from './components/Subscribe';
+import Pages from './components/Pages';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='timeline' element={<Timeline/>}/>
         <Route path='contact' element={<Contact/>}/>
         <Route path='subscribe' element={<Subscribe/>}/>
+        <Route path='pages' element={<Pages/>}/>
         <Route path="*"
           element={
           <main style={{ padding: "1rem" }}>

@@ -1,97 +1,71 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import Socials from './Socials'
 function DefaultNav() {
     return (
-        <div>
-            <section
-                style={{
-                    display:'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center'
-                }}
-            >
-                <h1>HenryIX</h1>
+        <div className='navPage'>
+            <section className='headerTitle'>
+                <img id='logo' src='images/logo-real.jpg' alt='Henry IX Logo' height='75'/>
             </section>
             
-            <nav
-                style={{
-                    display:'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center'
-                }}
-            >   
-                <NavLink             
+            <nav className='navBar'>
+                <div  className='navSocials'>
+                    <Socials/>  
+                </div>
+                <NavLink className='headerLinks'
                     style={({ isActive }) => {
                         return {
-                        display: "block",
-                        margin: "1rem 0",
-                        color: isActive ? "red" : "",
-                        padding: "5px"
-                        };
+                            backgroundColor: isActive ? "#6B6B6B" : "",
+                            };
                     }}
                     to='/home'
                 >
                     Home
                 </NavLink>
-                <NavLink             
+                <NavLink className='headerLinks'
                     style={({ isActive }) => {
                         return {
-                        display: "block",
-                        margin: "1rem 0",
-                        color: isActive ? "red" : "",
-                        padding: "5px"
+                            backgroundColor: isActive ? "#6B6B6B" : "",
                         };
                     }}
                     to='/events'
                 >
                     Tour
                 </NavLink>
-                <NavLink             
+                <NavLink className='headerLinks'             
                     style={({ isActive }) => {
                         return {
-                        display: "block",
-                        margin: "1rem 0",
-                        color: isActive ? "red" : "",
-                        padding: "5px"
+                        backgroundColor: isActive ? "#6B6B6B" : "",
                         };
                     }}
                     to='/shop'
                 >
                     Shop
                 </NavLink> 
-                <NavLink             
+                <NavLink className='headerLinks'            
                     style={({ isActive }) => {
                         return {
-                        display: "block",
-                        margin: "1rem 0",
-                        color: isActive ? "red" : "",
-                        padding: "5px"
+                        backgroundColor: isActive ? "#6B6B6B" : "",
                         };
                     }}
                     to='/timeline'
                 >
                     Timeline
                 </NavLink>
-                <NavLink             
+                <NavLink className='headerLinks'           
                     style={({ isActive }) => {
                         return {
-                        display: "block",
-                        margin: "1rem 0",
-                        color: isActive ? "red" : "",
-                        padding: "5px"
+                        backgroundColor: isActive ? "#6B6B6B" : "",
                         };
                     }}
                     to='/contact'
                 >
                     Contact/Book
                 </NavLink>
-                <NavLink             
+                <NavLink className='headerLinks'          
                     style={({ isActive }) => {
                         return {
-                        display: "block",
-                        margin: "1rem 0",
-                        color: isActive ? "red" : "",
-                        padding: "5px"
+                        backgroundColor: isActive ? "#6B6B6B" : "",
                         };
                     }}
                     to='/subscribe'
