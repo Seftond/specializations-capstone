@@ -33,19 +33,19 @@ function Contact() {
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
         <Form>
           <div>
-            <label htmlFor='username'>Name: <br></br></label>
+            <label htmlFor='username'>Name <br></br></label>
             <Field type='text' id="username" name="username" style = {{width: '30em'}}/>
             <ErrorMessage name='username' render={msg => <div className="errorMessage">{msg}</div>}/>
           </div>
 
           <div>
-            <label htmlFor='email'>Email: <br></br> </label>
+            <label htmlFor='email'>Email <br></br> </label>
             <Field type='text' id="email" name="email" style = {{width: '30em'}}/>
             <ErrorMessage name='email' render={msg => <div className="errorMessage">{msg}</div>}/>
           </div>
 
           <div>
-            <label htmlFor='message'>Message: <br></br></label>
+            <label htmlFor='message'>Message <br></br></label>
             <Field as='textarea' type='text' id="message" name="message" style={{width: '30em', height: '20em', resize: 'none'}}/>
             <ErrorMessage name='message' render={msg => <div className="errorMessage">{msg}</div>}/>
           </div>
